@@ -19,13 +19,15 @@ public class Trait {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name ="trait_type" )
-    //@Enumerated(EnumType.STRING)
-    private String traitType;
+    //@Column(name ="trait_type" )
+    @Column(columnDefinition = "ENUM('Custom', 'Computed')")
+    @Enumerated(EnumType.STRING)
+    private TraitType traitType;
 
-    @Column(name ="trait_value_type")
-    //@Enumerated(EnumType.STRING)
-    private String traitValueType;
+    //@Column(name ="trait_value_type")
+    @Column(columnDefinition = "ENUM('Number', 'String','Array')")
+    @Enumerated(EnumType.STRING)
+    private TraitValueType traitValueType;
 
     @Column(name ="description", nullable = true )
     private String description;
@@ -33,7 +35,7 @@ public class Trait {
     @Column(name = "account_id", nullable = false)
     private Long accountId;
 
-    @Column(columnDefinition = "ENUM('Number', 'Any','Array')")
+    @Column(columnDefinition = "ENUM('CREATED', 'ACTIVE','INACTIVE','DELETED')")
     @Enumerated(EnumType.STRING)
     private Status status;
 
@@ -66,19 +68,19 @@ public class Trait {
         this.name = name;
     }
 
-    public String getTraitType() {
+    public TraitType getTraitType() {
         return traitType;
     }
 
-    public void setTraitType(String traitType) {
+    public void setTraitType(TraitType traitType) {
         this.traitType = traitType;
     }
 
-    public String getTraitValueType() {
+    public TraitValueType getTraitValueType() {
         return traitValueType;
     }
 
-    public void setTraitValueType(String traitValueType) {
+    public void setTraitValueType(TraitValueType traitValueType) {
         this.traitValueType = traitValueType;
     }
 

@@ -1,7 +1,7 @@
 package com.c1x.traits.entity;
 
-public enum TraitTypeValue {
+public enum TraitValueType {
     Number,
-    Any,
+    String,
     Array
 }
